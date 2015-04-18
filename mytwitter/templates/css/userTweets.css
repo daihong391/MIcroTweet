@@ -1,0 +1,18 @@
+#container{
+	height: 600px;
+	width: 1002px;
+}
+#header{
+	height: 80px;
+	border: 1px solid red;
+}
+#main{
+	height: 520px;
+	border: 1px solid red;
+}
+#middle{
+	width: 600px;
+	height: 520px;
+	margin: 0 auto;
+	border: 1px solid red;
+}

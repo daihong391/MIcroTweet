@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>Twitter</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/css/userpage.css" />
+<link rel="stylesheet" type="text/css" href="/css/reset.css" />
+<!-- <script type="text/javascript" src="scripts/popform.js"></script> -->
+<script>
+	function popForm(){
+		// window.open("tweet/","Compose new Tweet","height=200, width=500, top=0,left=0,toolbar=0,menubar=no,scrollbars=no,resizable=no,location=no,status=no")
+		window.showModalDialog("tweet/","{{user}}","")
+	}
+</script>
+</head>
+    <body>
+    	<div id="container">
+    		<div id="header">
+    			<img id="popform" src="/css/tweetButton.jpg" target="_blank" alt="button" onclick="popForm()" />
+    			<!-- <input id="popform" type="button" value="Tweet" /> -->
+    		</div>
+    		<div id="main">
+    			<div id="left">
+    				<div id="left-up">
+    					<div id="left-up1"></div>
+    					<div id="left-up2">
+                                                            <p id="username">{{user}}</p>
+                                                            <div id="tweets-number" title="{{ct}} TWEETS">
+                                                                <!-- link to my Tweets page -->
+                                                                <a id="to-my-tweets" href="/userTweets/?={{user}}" value="{{user}}" />
+                                                                    <ul>
+                                                                        <li>TWEETS</li>
+                                                                        <li>{{ct}}</li>
+                                                                    </ul>
+                                                                </a>
+                                                            </div>
+                                                            <div>
+                                                                <ul>
+                                                                    <li>FOLLOWING</li>
+                                                                    <!-- add followings -->
+                                                                    <li></li>
+                                                                </ul>
+                                                            </div>
+                                                    </div>
+    				</div>
+    				<div id="left-down"></div>
+    			</div>
+    			<div id="middle">
+    			</div>
+    			<div id="right"></div>
+    		</div>
+    	</div>
+    </body>
+</html>

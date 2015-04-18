@@ -1,0 +1,64 @@
+#container{
+	height: 600px;
+	width: 1002px;
+}
+#header{
+	height: 30px;
+	border: 1px solid red;
+}
+#popform{
+	height:26px;
+	width: 70px;
+	border:1px solid blue;
+	float: right;
+	margin: 1px 20px 1px 0;
+}
+/*#header-button img{
+	width: auto;
+	height:auto;
+	max-height: 100%;
+	max-width: 100%;
+}*/
+#main{
+	height: 565px;
+	border: 1px solid red;
+	background-image: url("userBackground.png");
+}
+#left{
+	height: 400px;
+	width:160px;
+	border: 1px solid red;
+	margin:5px;
+	float: left;
+}
+#left-up{
+	height: 100px;
+	border:1px solid blue;
+	margin-bottom: 5px;
+}
+#left-up1{
+	height: 50%;
+	background: blue;
+}
+#left-up2{
+	height: 50%;
+	background: white;
+}
+#left-down{
+	height: 260px;
+	border:1px solid blue;
+}
+#middle{
+	width: 60%;
+	height: 550px;
+	border: 1px solid red;
+	margin: 5px 25px;
+	display: inline-block;
+}
+#right{
+	height: 80px;
+	width: 160px;
+	border: 1px solid red;
+	margin: 5px 5px 0 0;
+	float: right;
+}

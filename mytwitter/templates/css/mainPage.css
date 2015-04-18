@@ -1,0 +1,91 @@
+#container{
+	height: 600px;
+	width: 1002px;
+}
+#header{
+	height: 5%;
+	border: 1px solid red;
+}
+#main{
+	height: 95%;
+	border: 1px solid red;
+	background-image: url("Banff.jpg");
+}
+#flag{
+	height:400px;
+	width: 600px;
+	margin: 30px auto;
+	border:1px solid red;
+}
+#top{
+	height:75%;
+	border:1px solid blue;
+}
+#txt{
+	width: 60%;
+	height:100%;
+	border: 1px solid red;
+	float:left;
+	background: black;
+	color:white;
+}
+#txt h1{
+	font-size: 30px;
+	font-weight: bold;
+}
+#txt p{
+	font-size:15px;
+	margin-top: 20px;
+}
+#form{
+	width:35%;
+	height:100%;
+	border:1px solid blue;
+	float:right;
+}
+#form1{
+	width:100%;
+	height: 30%;
+	background:gray;
+	margin-bottom: 10%;
+}
+.username{
+	width: 80%;
+	height: 20px;
+	margin: 5px;
+}
+.passwd{
+	width: 60%;
+	height: 20px;
+	margin: 5px;
+}
+#remember{
+	margin:5px;
+}
+#despRem{
+	display: inline;
+	font-size: 10px;
+	line-height: 10px;
+	font-weight: bold;
+	color: white;
+}
+#form2{
+	width:100%;
+	height:60%;
+	background:blue;
+}
+#title{
+	font-size: 12px;
+	line-height: 15px;
+	font-weight: bold;
+	color: white;
+	margin: 5px;
+}
+#signup{
+	display: block;
+	float: right;
+}
+#bottom{
+	height: 25%;
+	border:1px solid green;
+}
