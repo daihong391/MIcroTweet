@@ -5,4 +5,4 @@ This project aims to build a Django-powered micro edition of Twitter. As this is
 I will adopt the embedded database-SQLite 3. This project is mainly divided into two parts: HTML and
 database, and 
 
-![Banff](http://https://github.com/daihong391/MIcroTweet.git/mytwitter/templates/css/Banff.jpg)
+![Banff](http://github.com/daihong391/MIcroTweet.git/mytwitter/templates/css/Banff.jpg)
