@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>{{username}}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="/css/reset.css" />
+<link rel="stylesheet" href="/css/userTweets.css" />
+<script>
+	var username="{{username}}";
+
+	window.onload=displayTweet;
+
+	function displayTweet(){
+
+		for(var i=0;i<{{keys|safe}}.length;i++){
+			var node=document.createElement("p");
+			node.style.height="80px";
+			node.style.border="1px solid red";
+			var nodeup=document.createElement("up");
+			nodeup.style.height="20px";
+			nodeup.style.border="1px solid red";
+			nodeup.style.display="block";
+			var nodedown=document.createElement("down");
+			nodedown.style.height="60px";
+			nodedown.style.border="1px solid blue";
+			nodedown.style.display="block";
+			var nodeLeft=document.createElement("left");
+			nodeLeft.style.height="60px";
+			nodeLeft.style.width="100px";
+			nodeLeft.style.background="blue";
+			nodeLeft.style.display="block";
+			nodeLeft.style.float="left";
+			var nodeRight=document.createElement("right");
+			nodeRight.style.width="480px";
+			nodeRight.style.height="60px";
+			nodeRight.style.background="orange";
+			nodeRight.style.display="block";
+			nodeRight.style.float="left";
+			var node1=document.createElement("node1");
+			node1.style.height="30%";
+			node1.style.background="green";
+			node1.style.display="block";
+			var txt1=document.createTextNode("{{username}}");
+			var node2=document.createElement("node2");
+			node2.style.height="70%";
+			node2.style.background="yellow";
+			node2.style.display="block";
+			var txt2=document.createTextNode({{keys|safe}}[i]);
+			node.appendChild(nodeup);
+			nodedown.appendChild(nodeLeft);
+			node1.appendChild(txt1);
+			nodeRight.appendChild(node1);
+			node2.appendChild(txt2);
+			nodeRight.appendChild(node2);
+			nodedown.appendChild(nodeRight);
+			node.appendChild(nodedown);
+			var node_middle=document.getElementById("middle");
+			node_middle.appendChild(node);
+		}
+	}
+</script>
+</head>
+    <body>
+    	<div id="container">
+    		<div id="header"></div>
+    		<div id="main">
+    			<div id="middle"></div>
+    		</div>
+    	</div>
+    </body>
+</html>
