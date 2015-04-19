@@ -148,3 +148,23 @@ This page is very similar to the page "Tweets by User", and shows as following:
 	* In this page, you can find how many Tweets you have posted:
 	
 ![Total Tweets](https://github.com/daihong391/MIcroTweet/raw/master/images/totalTweets.png)
+
+		* By clicking this place, you can enter a webpage shows those Tweets you have posted
+
+![User's all Tweets](https://github.com/daihong391/MIcroTweet/raw/master/images/tweetsByUser.png)
+
+	* you can also post a Tweet, by click this button in the top right:
+
+![Tweet Button](https://github.com/daihong391/MIcroTweet/raw/master/images/tweetButton.png)
+
+	* you can search other people's tweets by inputting their username here:
+	
+![Search Twitter](https://github.com/daihong391/MIcroTweet/raw/master/images/searchTwitter.png)
+
+		* Then you will enter a new webpage which shows all the tweets by that person:
+		
+![Tweets by Following](https://github.com/daihong391/MIcroTweet/raw/master/images/tweetsByFollowing.png)
+
+		* If enter a username who is not exist, this webpage will display:
+		
+![Twitter not Exist](https://github.com/daihong391/MIcroTweet/raw/master/images/noTwitter.png)
