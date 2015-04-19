@@ -17,7 +17,7 @@
     	<div id="container">
     		<div id="header">
                                 <div id="formSearch">
-                                    <form action="" method="GET">
+                                    <form action="/searchfollowing/" method="post" >{% csrf_token %}
                                         <input type="text" name="tweetField" placeholder="Search Twitter" id="search" />
                                         <Button type="submit" name="searchTwitter" value="" id="submitButton" />
                                     </form>
