@@ -30,3 +30,14 @@ This page is being realized, and these two figures show the frame of user page a
 ![User Page](https://github.com/daihong391/MIcroTweet/raw/master/images/userpage.png)
 
 ![User Page](https://github.com/daihong391/MIcroTweet/raw/master/images/newtweet.png)
+
+User page includes following functions:
+* checking the number of Tweets on the left top
+* posting a new Tweet by clicking top right 'Tweet' image
+* searching other people's Tweets by using the search box
+
+#### 2.1.3 Tweets by User
+
+This page displays all Tweets posted by user:
+
+![User Page](https://github.com/daihong391/MIcroTweet/raw/master/images/tweetsByUser.png)
