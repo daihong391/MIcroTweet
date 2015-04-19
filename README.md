@@ -41,3 +41,9 @@ User page includes following functions:
 This page displays all Tweets posted by user:
 
 ![User Page](https://github.com/daihong391/MIcroTweet/raw/master/images/tweetsByUser.png)
+
+#### 2.1.4 Tweets by Following
+
+This page is very similar to the page "Tweets by User", and shows as following:
+
+![User Page](https://github.com/daihong391/MIcroTweet/raw/master/images/tweetsByFollowing.png)
