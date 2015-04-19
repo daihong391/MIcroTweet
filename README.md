@@ -1,8 +1,8 @@
-Micro Twitter Project:
+# Micro Twitter Project:
 
-1. Instructions:
-This project aims to build a Django-powered micro edition of Twitter. As this is a minor project,
-I will adopt the embedded database-SQLite 3. This project is mainly divided into two parts: HTML and
-database, and 
+##1. Instructions
+This project aims to build a Django-powered micro edition of Twitter. As this is a minor project, I will adopt  
+the embedded database-SQLite 3. This project is mainly divided into two parts: HTML and database, and  
+the bellowing is the detailed design flow:
 
-![Banff](https://github.com/daihong391/MIcroTweet/raw/master/mytwitter/templates/css/Banff.jpg)
+![Project Flow](https://github.com/daihong391/MIcroTweet/raw/master/images/projectFlow.png)
