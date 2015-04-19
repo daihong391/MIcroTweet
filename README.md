@@ -29,7 +29,7 @@ This page is being realized, and these two figures show the frame of user page a
 
 ![User Page](https://github.com/daihong391/MIcroTweet/raw/master/images/userpage.png)
 
-![User Page](https://github.com/daihong391/MIcroTweet/raw/master/images/newtweet.png)
+![New Tweet](https://github.com/daihong391/MIcroTweet/raw/master/images/newtweet.png)
 
 User page includes following functions:
 * checking the number of Tweets on the left top
@@ -40,13 +40,13 @@ User page includes following functions:
 
 This page displays all Tweets posted by user:
 
-![User Page](https://github.com/daihong391/MIcroTweet/raw/master/images/tweetsByUser.png)
+![User's all Tweets](https://github.com/daihong391/MIcroTweet/raw/master/images/tweetsByUser.png)
 
 #### 2.1.4 Tweets by Following
 
 This page is very similar to the page "Tweets by User", and shows as following:
 
-![User Page](https://github.com/daihong391/MIcroTweet/raw/master/images/tweetsByFollowing.png)
+![Tweets by Following](https://github.com/daihong391/MIcroTweet/raw/master/images/tweetsByFollowing.png)
 
 ### 2.2 Database
 #### 2.2.1 User Table
@@ -114,3 +114,37 @@ This page is very similar to the page "Tweets by User", and shows as following:
       <td>False</td>
    </tr>
 </table>
+
+## 3. Instruction for running project
+### 3.1 Download Project from Github
+
+* Select a folder you want to store the project "MIcroTweet"
+* Run the "Git Bash"
+* Enter "git clone git@github.com:daihong391/MIcroTweet.git"
+
+### 3.2 Starting Server
+
+* Open the Command Prompt Window
+* Enter the document which you store the cloned project "MIcroTweet" from Github
+* Continue to enter this project, and then input "python manage.py runserver"
+
+### 3.3 Running project
+
+* Open a browser, and input the link "127.0.0.1:8000/mainpage/"
+* When entering the main page, you first need to create an account in the following form:
+
+![Create Account](https://github.com/daihong391/MIcroTweet/raw/master/images/createAccount.png)
+
+* After creating an account, you can use it to login:
+
+![login](https://github.com/daihong391/MIcroTweet/raw/master/images/login.png)
+
+**PS:** If you enter a wrong username or password, you will stay in the mainpage
+
+* When you enter the correct username and password, the bellowing figure is your userpage:
+
+![User Page](https://github.com/daihong391/MIcroTweet/raw/master/images/userpage.png)
+
+	* In this page, you can find how many Tweets you have posted:
+	
+	![Total Tweets](https://github.com/daihong391/MIcroTweet/raw/master/images/totalTweets.png)
