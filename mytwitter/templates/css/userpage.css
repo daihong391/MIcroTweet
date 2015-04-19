@@ -73,6 +73,18 @@
 	margin: 5px 25px;
 	display: inline-block;
 }
+#middle-up{
+	height: 110px;
+	border: 1px solid red;
+}
+.followings{
+	width: 26%;
+	height: 86px;
+	float: left;
+	border: 1px solid red;
+	margin-top: 10px;
+	margin-left: 30px;
+}
 #right{
 	height: 80px;
 	width: 160px;
