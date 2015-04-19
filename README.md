@@ -1,6 +1,6 @@
 # Micro Twitter Project:
 
-##1. Instructions
+## 1. Instructions
 This project aims to build a Django-powered micro edition of Twitter. As this is a minor project, I will adopt the embedded database-SQLite 3. This project is mainly divided into two parts: HTML and database, and the bellowing is the detailed design flow:
 
 ![Project Flow](https://github.com/daihong391/MIcroTweet/raw/master/images/projectFlow.png)
@@ -12,4 +12,12 @@ Considering the structure of this project, we need three databases: the first on
 The bellowing figure shows the relationship between HTMLs and databases:
 
 ![Relationship between HTMLs and databases](https://github.com/daihong391/MIcroTweet/raw/master/images/relation.png)
+
+## 2. Details
+### 2.1 HTML
+#### 2.1.1 Main Page
+
+This page mainly focuses on the functions for logging in or creating an account, and the bellowing is the raw version of the main page:
+
+![Main Page](https://github.com/daihong391/MIcroTweet/raw/master/images/mainpage.png)
 
