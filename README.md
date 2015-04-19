@@ -47,3 +47,70 @@ This page displays all Tweets posted by user:
 This page is very similar to the page "Tweets by User", and shows as following:
 
 ![User Page](https://github.com/daihong391/MIcroTweet/raw/master/images/tweetsByFollowing.png)
+
+### 2.2 Database
+#### 2.2.1 User Table
+
+<table border="1" cellspacing="0">
+   <tr>
+      <td>Column Name</td>
+      <td>Type</td>
+      <td>NULL</td>
+   </tr>
+   <tr>
+      <td>userName</td>
+      <td>varchar(30)</td>
+      <td>False</td>
+   </tr>
+   <tr>
+      <td>passwd</td>
+      <td>varchar(50)</td>
+      <td>False</td>
+   </tr>
+   <tr>
+      <td>nikename</td>
+      <td>varchar(30)</td>
+      <td>False</td>
+   </tr>
+</table>
+
+
+#### 2.2.2 Tweets Table
+
+<table border="1" cellspacing="0">
+   <tr>
+      <td>Column Name</td>
+      <td>Type</td>
+      <td>NULL</td>
+   </tr>
+   <tr>
+      <td>userName</td>
+      <td>varchar(30)</td>
+      <td>False</td>
+   </tr>
+   <tr>
+      <td>content</td>
+      <td>varchar(50)</td>
+      <td>False</td>
+   </tr>
+</table>
+
+#### 2.2.3 Following 
+
+<table border="1" cellspacing="0">
+   <tr>
+      <td>Column Name</td>
+      <td>Type</td>
+      <td>NULL</td>
+   </tr>
+   <tr>
+      <td>userName</td>
+      <td>varchar(30)</td>
+      <td>False</td>
+   </tr>
+   <tr>
+      <td>following</td>
+      <td>varchar(30)</td>
+      <td>False</td>
+   </tr>
+</table>
