@@ -27,6 +27,6 @@ If the username or password is incorrect, you will stay in the main page.
 
 This page is being realized, and these two figures show the frame of user page and a window for composing a new Tweet:
 
-![User Page](https://github.com/daihong391/MIcroTweet/raw/master/images/mainpage.png)
+![User Page](https://github.com/daihong391/MIcroTweet/raw/master/images/userpage.png)
 
 ![User Page](https://github.com/daihong391/MIcroTweet/raw/master/images/newtweet.png)
