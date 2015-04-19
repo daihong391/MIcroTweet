@@ -147,4 +147,4 @@ This page is very similar to the page "Tweets by User", and shows as following:
 
 	* In this page, you can find how many Tweets you have posted:
 	
-	![Total Tweets](https://github.com/daihong391/MIcroTweet/raw/master/images/totalTweets.png)
+![Total Tweets](https://github.com/daihong391/MIcroTweet/raw/master/images/totalTweets.png)
