@@ -9,3 +9,7 @@ The first part, HTML, is mainly constitute of four sections: "main page", "user 
 
 Considering the structure of this project, we need three databases: the first one for recording user's information(such as username, password, and email), the second one is for recording the Tweet's information(such as username, content), and the last one is for recording the following(such as username, following).
 
+The bellowing figure shows the relationship between HTMLs and databases:
+
+![Relationship between HTMLs and databases](https://github.com/daihong391/MIcroTweet/raw/master/images/relation.png)
+
