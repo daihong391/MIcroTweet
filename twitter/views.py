@@ -6,7 +6,25 @@ from django.views.decorators.csrf import csrf_exempt
 from twitter.models import User,Tweet
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import connection
+from django.db.models import Count
 import json as simplejson
+
+#Search Following
+@csrf_exempt
+def searchfollowing(request):
+	request_context = RequestContext(request)
+	username=request.POST.get('tweetField')
+	contents=[]
+	list1=[]
+	if Tweet.objects.filter(userName=username).count()!=0:
+		contents=Tweet.objects.all().filter(userName=username).values_list('content',flat=True)
+		for item in contents:
+			list1.append(item)
+		json_list=simplejson.dumps(list1)
+
+		return render_to_response('singleTwitter.html',{'username':username,'keys':json_list})
+
+	return render_to_response('singleTwitter2.html',{'username':username})
 
 # Create your views here.
 def mainPage(request):
