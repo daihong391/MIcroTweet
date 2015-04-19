@@ -21,3 +21,12 @@ This page mainly focuses on the functions for logging in or creating an account,
 
 ![Main Page](https://github.com/daihong391/MIcroTweet/raw/master/images/mainpage.png)
 
+If the username or password is incorrect, you will stay in the main page.
+
+#### 2.1.2 User Page
+
+This page is being realized, and these two figures show the frame of user page and a window for composing a new Tweet:
+
+![User Page](https://github.com/daihong391/MIcroTweet/raw/master/images/mainpage.png)
+
+![User Page](https://github.com/daihong391/MIcroTweet/raw/master/images/newtweet.png)
