@@ -56,6 +56,8 @@ def login(request):
 	ct1=0
 	list1=[]
 	request_context = RequestContext(request)
+	followers=[]
+	follower_contents=[]
 
 	if request.method=='POST':
 		username=request.POST.get('username')
@@ -68,12 +70,24 @@ def login(request):
 				for item in contents:
 					if Following.objects.filter(userName=username).filter(following=item).count()==0:
 						list1.append(item)
+
+				u1=Following.objects.filter(userName=username).values_list('following',flat=True)
+				for un in u1:
+					c1=Tweet.objects.all().filter(userName=un).values_list('content',flat=True)
+					for ct in c1:
+						followers.append(un)
+						follower_contents.append(ct)
+				user_list=simplejson.dumps(followers)
+				content_list=simplejson.dumps(follower_contents)
 				json_list=simplejson.dumps(list1)
 
 
 				for ct in Tweet.objects.filter(userName=username):
 					ct1=ct1+1
-				return render_to_response('userpage.html',{'user':username,'passwd':passwd,'ct':ct1,'keys':json_list})
+
+				
+
+				return render_to_response('userpage.html',{'user':username,'passwd':passwd,'ct':ct1,'keys':json_list,'userlist':user_list,'contentlist':content_list})
 				
 		return render(request,'mainPage2.html')
 
@@ -109,6 +123,8 @@ def addFollowing(request):
 
 	ct1=0
 	list1=[]
+	followers=[]
+	follower_contents=[]
 	if request.method=='POST':
 		username=request.POST['username']
 		followname=request.POST['followname']
@@ -124,8 +140,16 @@ def addFollowing(request):
 				list1.append(item)
 		json_list=simplejson.dumps(list1)
 
+		u1=Following.objects.filter(userName=username).values_list('following',flat=True)
+		for un in u1:
+			c1=Tweet.objects.all().filter(userName=un).values_list('content',flat=True)
+			for ct in c1:
+				followers.append(un)
+				follower_contents.append(ct)
+		user_list=simplejson.dumps(followers)
+		content_list=simplejson.dumps(follower_contents)
 
 		for ct in Tweet.objects.filter(userName=username):
 			ct1=ct1+1
 
-		return render_to_response("userpage.html",{'user':username,'ct':ct1,'keys':json_list});
+		return render_to_response("userpage.html",{'user':username,'ct':ct1,'keys':json_list,'userlist':user_list,'contentlist':content_list});

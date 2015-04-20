@@ -31,6 +31,52 @@
                 usernames[i].setAttribute("value",'{{user}}');
                 follownames[i].setAttribute("value",user_list[i]);
             }
+
+            for(var i=0;i<{{contentlist|safe}}.length;i++){
+                var node=document.createElement("p");
+                node.style.height="80px";
+                node.style.border="1px solid red";
+                var nodeup=document.createElement("up");
+                nodeup.style.height="20px";
+                nodeup.style.border="1px solid red";
+                nodeup.style.display="block";
+                var nodedown=document.createElement("down");
+                nodedown.style.height="60px";
+                nodedown.style.border="1px solid blue";
+                nodedown.style.display="block";
+                var nodeLeft=document.createElement("left");
+                nodeLeft.style.height="60px";
+                nodeLeft.style.width="100px";
+                nodeLeft.style.background="blue";
+                nodeLeft.style.display="block";
+                nodeLeft.style.float="left";
+                var nodeRight=document.createElement("right");
+                nodeRight.style.width="480px";
+                nodeRight.style.height="60px";
+                nodeRight.style.background="orange";
+                nodeRight.style.display="block";
+                nodeRight.style.float="left";
+                var node1=document.createElement("node1");
+                node1.style.height="30%";
+                node1.style.background="green";
+                node1.style.display="block";
+                var txt1=document.createTextNode({{userlist|safe}}[i]);
+                var node2=document.createElement("node2");
+                node2.style.height="70%";
+                node2.style.background="yellow";
+                node2.style.display="block";
+                var txt2=document.createTextNode({{contentlist|safe}}[i]);
+                node.appendChild(nodeup);
+                nodedown.appendChild(nodeLeft);
+                node1.appendChild(txt1);
+                nodeRight.appendChild(node1);
+                node2.appendChild(txt2);
+                nodeRight.appendChild(node2);
+                nodedown.appendChild(nodeRight);
+                node.appendChild(nodedown);
+                var node_middle=document.getElementById("middle");
+                node_middle.appendChild(node);
+            }
           }
 </script>
 </head>
@@ -99,6 +145,7 @@
                                                 </form>
                                             </div>
                                         </div>
+                                        <div id="middle-down"></div>
     			</div>
     			<div id="right"></div>
     		</div>
