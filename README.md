@@ -172,3 +172,7 @@ This page is very similar to the page "Tweets by User", and shows as following:
 	* you can also follow other person's twitter, by click the "Follow" button as bellowing:
 	
 ![Add Following](https://github.com/daihong391/MIcroTweet/raw/master/images/addFollowing.png)
+
+	* If you have followed a twitter, this one will be replaced by other twitters you have not followed:
+	
+![Add Following2](https://github.com/daihong391/MIcroTweet/raw/master/images/addFollowing2.png)
