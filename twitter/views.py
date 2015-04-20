@@ -54,6 +54,7 @@ def login(request):
 	username={}
 	passwd={}
 	ct1=0
+	ct2=0
 	list1=[]
 	request_context = RequestContext(request)
 	followers=[]
@@ -73,6 +74,7 @@ def login(request):
 
 				u1=Following.objects.filter(userName=username).values_list('following',flat=True)
 				for un in u1:
+					ct2=ct2+1
 					c1=Tweet.objects.all().filter(userName=un).values_list('content',flat=True)
 					for ct in c1:
 						followers.append(un)
@@ -84,10 +86,11 @@ def login(request):
 
 				for ct in Tweet.objects.filter(userName=username):
 					ct1=ct1+1
+					
 
-				
+					
 
-				return render_to_response('userpage.html',{'user':username,'passwd':passwd,'ct':ct1,'keys':json_list,'userlist':user_list,'contentlist':content_list})
+				return render_to_response('userpage.html',{'user':username,'passwd':passwd,'ct':ct1,'keys':json_list,'userlist':user_list,'contentlist':content_list,'ct2':ct2})
 				
 		return render(request,'mainPage2.html')
 
@@ -122,6 +125,7 @@ def addFollowing(request):
 	request_context = RequestContext(request)
 
 	ct1=0
+	ct2=0
 	list1=[]
 	followers=[]
 	follower_contents=[]
@@ -142,6 +146,7 @@ def addFollowing(request):
 
 		u1=Following.objects.filter(userName=username).values_list('following',flat=True)
 		for un in u1:
+			ct2=ct2+1
 			c1=Tweet.objects.all().filter(userName=un).values_list('content',flat=True)
 			for ct in c1:
 				followers.append(un)
@@ -152,4 +157,4 @@ def addFollowing(request):
 		for ct in Tweet.objects.filter(userName=username):
 			ct1=ct1+1
 
-		return render_to_response("userpage.html",{'user':username,'ct':ct1,'keys':json_list,'userlist':user_list,'contentlist':content_list});
+		return render_to_response("userpage.html",{'user':username,'ct':ct1,'ct2':ct2,'keys':json_list,'userlist':user_list,'contentlist':content_list});
