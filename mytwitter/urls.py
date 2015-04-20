@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from twitter.views import mainPage,login,addUser,newTweet,postTweet,userTweets,searchfollowing
+from twitter.views import mainPage,login,addUser,newTweet,postTweet,userTweets,searchfollowing,addFollowing
 import settings,os
 
 urlpatterns = patterns('',
@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     (r'^postTweet/$',postTweet),
     (r'^userTweets/$',userTweets),
     (r'^searchfollowing/$',searchfollowing),
+    (r'^addFollowing/$',addFollowing),
     
     (r'^css/(?P<path>.*)$','django.views.static.serve',
     	{'document_root': os.path.join(os.path.dirname(__file__),'templates/css').replace('\\','/') }

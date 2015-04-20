@@ -8,9 +8,30 @@
 <!-- <script type="text/javascript" src="scripts/popform.js"></script> -->
 <script>
 	function popForm(){
-		// window.open("tweet/","Compose new Tweet","height=200, width=500, top=0,left=0,toolbar=0,menubar=no,scrollbars=no,resizable=no,location=no,status=no")
 		window.showModalDialog("tweet/","{{user}}","")
 	}
+          window.onload=displayFollowing;
+          function displayFollowing(){
+            var user_list={{keys|safe}};
+            // var contents[]=user_list.split(",",user_list.length);
+            var follow1=document.getElementById("setName1");
+            var follow2=document.getElementById("setName2");
+            var follow3=document.getElementById("setName3");
+            var follows=Array(follow1,follow2,follow3);
+            var username1=document.getElementById("username1");
+            var followname1=document.getElementById("followname1");
+            var username2=document.getElementById("username2");
+            var followname2=document.getElementById("followname2");
+            var username3=document.getElementById("username3");
+            var followname3=document.getElementById("followname3");
+            var usernames=Array(username1,username2,username3);
+            var follownames=Array(followname1,followname2,followname3);
+           for(var i=0;i<user_list.length;i++){
+                follows[i].lastChild.nodeValue=user_list[i];
+                usernames[i].setAttribute("value",'{{user}}');
+                follownames[i].setAttribute("value",user_list[i]);
+            }
+          }
 </script>
 </head>
     <body>
@@ -53,9 +74,30 @@
     			</div>
     			<div id="middle">
                                         <div id="middle-up">
-                                            <div class="followings"></div>
-                                            <div class="followings"></div>
-                                            <div class="followings"></div>
+                                            <div class="followings" id="follow1">
+                                                <p id="setName1">void</p>
+                                                <form action="/addFollowing/" method="POST">{% csrf_token %}
+                                                    <input id="username1" type="hidden" name="username" value="" />
+                                                    <input id="followname1" type="hidden" name="followname" value="" />
+                                                    <input type="submit" value="Follow" />
+                                                </form>
+                                            </div>
+                                            <div class="followings" id="follow2">
+                                                 <p id="setName2">void</p>
+                                                 <form action="/addFollowing/" method="POST">{% csrf_token %}
+                                                    <input id="username2" type="hidden" name="username" value="" />
+                                                    <input id="followname2" type="hidden" name="followname" value="" />
+                                                    <input type="submit" value="Follow" />
+                                                </form>
+                                            </div>
+                                            <div class="followings" id="follow3">
+                                                 <p id="setName3">void</p>
+                                                 <form action="/addFollowing/" method="POST">{% csrf_token %}
+                                                    <input id="username3" type="hidden" name="username" value="" />
+                                                    <input id="followname3" type="hidden" name="followname" value="" />
+                                                    <input type="submit" value="Follow" />
+                                                </form>
+                                            </div>
                                         </div>
     			</div>
     			<div id="right"></div>
