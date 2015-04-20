@@ -168,3 +168,7 @@ This page is very similar to the page "Tweets by User", and shows as following:
 		* If enter a username who is not exist, this webpage will display:
 		
 ![Twitter not Exist](https://github.com/daihong391/MIcroTweet/raw/master/images/noTwitter.png)
+
+	* you can also follow other person's twitter, by click the "Follow" button as bellowing:
+	
+![Add Following](https://github.com/daihong391/MIcroTweet/raw/master/images/addFollowing.png)
