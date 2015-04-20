@@ -3,10 +3,10 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.views.decorators.csrf import csrf_exempt
-from twitter.models import User,Tweet
+from twitter.models import User,Tweet,Following
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import connection
-from django.db.models import Count
+from django.db.models import Count,Q
 import json as simplejson
 
 #Search Following
@@ -48,11 +48,13 @@ def userTweets(request):
 
 	return render_to_response('userTweets.html',{'user':mstring[0],'keys':json_list})
 
+#user page
 @csrf_exempt
 def login(request):
 	username={}
 	passwd={}
 	ct1=0
+	list1=[]
 	request_context = RequestContext(request)
 
 	if request.method=='POST':
@@ -61,9 +63,17 @@ def login(request):
 
 		if User.objects.filter(userName=username):
 			if User.objects.filter(passwd=passwd):
+				contents=User.objects.all().filter(~Q(userName=username)).values_list('userName',flat=True)
+				
+				for item in contents:
+					if Following.objects.filter(userName=username).filter(following=item).count()==0:
+						list1.append(item)
+				json_list=simplejson.dumps(list1)
+
+
 				for ct in Tweet.objects.filter(userName=username):
 					ct1=ct1+1
-				return render_to_response('userpage.html',{'user':username,'passwd':passwd,'ct':ct1})
+				return render_to_response('userpage.html',{'user':username,'passwd':passwd,'ct':ct1,'keys':json_list})
 				
 		return render(request,'mainPage2.html')
 
@@ -91,3 +101,31 @@ def postTweet(request):
 		p.save()
 
 	return render_to_response('submit.html')
+
+# add Following
+@csrf_exempt
+def addFollowing(request):
+	request_context = RequestContext(request)
+
+	ct1=0
+	list1=[]
+	if request.method=='POST':
+		username=request.POST['username']
+		followname=request.POST['followname']
+
+		if Following.objects.filter(userName=username).filter(following=followname).count()==0:
+			p=Following(userName=username, following=followname)
+			p.save()
+
+		contents=User.objects.all().filter(~Q(userName=username)).values_list('userName',flat=True)
+				
+		for item in contents:
+			if Following.objects.filter(userName=username).filter(following=item).count()==0:
+				list1.append(item)
+		json_list=simplejson.dumps(list1)
+
+
+		for ct in Tweet.objects.filter(userName=username):
+			ct1=ct1+1
+
+		return render_to_response("userpage.html",{'user':username,'ct':ct1,'keys':json_list});
