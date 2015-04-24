@@ -7,6 +7,7 @@ from twitter.models import User,Tweet,Following
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import connection
 from django.db.models import Count,Q
+from .forms import LoginForm,CreateAccount
 import json as simplejson
 
 #Search Following
@@ -28,7 +29,9 @@ def searchfollowing(request):
 
 # Create your views here.
 def mainPage(request):
-	return render_to_response('mainPage2.html')
+	form1=LoginForm(request.POST)
+	form2=CreateAccount(request.POST)
+	return render_to_response('mainPage2.html',{'form1':form1,'form2':form2})
 
 def newTweet(request):
 	return render_to_response('newTweet.html')
@@ -51,8 +54,6 @@ def userTweets(request):
 #user page
 @csrf_exempt
 def login(request):
-	username={}
-	passwd={}
 	ct1=0
 	ct2=0
 	list1=[]
@@ -61,51 +62,60 @@ def login(request):
 	follower_contents=[]
 
 	if request.method=='POST':
-		username=request.POST.get('username')
-		passwd=request.POST.get('passwd')
+		form=LoginForm(request.POST)
+		if form.is_valid():
+			username=form.cleaned_data['username']
+			passwd=form.cleaned_data['passwd']
 
-		if User.objects.filter(userName=username):
-			if User.objects.filter(passwd=passwd):
-				contents=User.objects.all().filter(~Q(userName=username)).values_list('userName',flat=True)
+			if User.objects.filter(userName=username):
+				if User.objects.filter(passwd=passwd):
+					contents=User.objects.all().filter(~Q(userName=username)).values_list('userName',flat=True)
 				
-				for item in contents:
-					if Following.objects.filter(userName=username).filter(following=item).count()==0:
-						list1.append(item)
+					for item in contents:
+						if Following.objects.filter(userName=username).filter(following=item).count()==0:
+							list1.append(item)
 
-				u1=Following.objects.filter(userName=username).values_list('following',flat=True)
-				for un in u1:
-					ct2=ct2+1
-					c1=Tweet.objects.all().filter(userName=un).values_list('content',flat=True)
-					for ct in c1:
-						followers.append(un)
-						follower_contents.append(ct)
-				user_list=simplejson.dumps(followers)
-				content_list=simplejson.dumps(follower_contents)
-				json_list=simplejson.dumps(list1)
+					u1=Following.objects.filter(userName=username).values_list('following',flat=True)
+					for un in u1:
+						ct2=ct2+1
+						c1=Tweet.objects.all().filter(userName=un).values_list('content',flat=True)
+						for ct in c1:
+							followers.append(un)
+							follower_contents.append(ct)
+					user_list=simplejson.dumps(followers)
+					content_list=simplejson.dumps(follower_contents)
+					json_list=simplejson.dumps(list1)
 
 
-				for ct in Tweet.objects.filter(userName=username):
-					ct1=ct1+1
+					for ct in Tweet.objects.filter(userName=username):
+						ct1=ct1+1
 					
 
 					
 
-				return render_to_response('userpage.html',{'user':username,'passwd':passwd,'ct':ct1,'keys':json_list,'userlist':user_list,'contentlist':content_list,'ct2':ct2})
-				
-		return render(request,'mainPage2.html')
+					return render_to_response('userpage.html',{'user':username,'passwd':passwd,'ct':ct1,'keys':json_list,'userlist':user_list,'contentlist':content_list,'ct2':ct2})
+			
+	form1=LoginForm()
+	form2=CreateAccount()	
+	return render(request,'mainPage2.html',{'form1':form1,'form2':form2})
 
 @csrf_exempt
 def addUser(request):
 	request_context = RequestContext(request)
 
 	if request.method=='POST':
-		fullname=request.POST['fullname']
-		email=request.POST['email']
-		passwd=request.POST['passwd']
-		p1=User(userName=fullname,nikename=email,passwd=passwd)
-		p1.save()
-		
-	return render_to_response('mainPage2.html')
+		form=CreateAccount(request.POST)
+		if form.is_valid():
+			username=form.cleaned_data['username']
+			email=form.cleaned_data['email']
+			passwd=form.cleaned_data['passwd']
+			p1=User(userName=username,nikename=email,passwd=passwd)
+			p1.save()
+
+	form1=LoginForm()
+	form2=CreateAccount()
+
+	return render_to_response('mainPage2.html',{'form1':form1,'form2':form2})
 
 @csrf_exempt
 def postTweet(request):
