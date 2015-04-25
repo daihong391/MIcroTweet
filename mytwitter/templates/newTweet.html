@@ -30,19 +30,11 @@
     			<p>Compose new Tweet: </p>
     		</div>
     		<div id="main">
-    			<form action="/postTweet/" method="POST">{% csrf_token %}
-    				<ul>
-
-                                                    <li>
-                                                              <input id="user" type="hidden" name="username" value="" />
-                                                    </li>
-    					<li>
-    						<textarea name="textArea" id="textArea" cols="50" rows="5"></textarea>
-    					</li>
-    					<li>
-    						<input type="submit" value="Tweet" size="16" />
-    					</li>
-    				</ul>
+    			<form action="/postTweet/" method="POST">
+                                    {% csrf_token %}
+                                    {{form.username}}
+                                    {{form.textarea}}
+    			     <input type="submit" value="Tweet" size="16" />
     			</form>
     		</div>
     	</div>

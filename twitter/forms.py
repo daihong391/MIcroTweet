@@ -1,10 +1,14 @@
-from django import forms
+from  django import forms
 
-class LoginForm(forms.Form):
-	username=forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder':'username','size':'15'}))
-	passwd=forms.CharField(max_length=50, widget=forms.PasswordInput(attrs={'placeholder':'password','size':'15'}))
+class loginForm(forms.Form):
+	username=forms.CharField(max_length=50, widget=forms.TextInput(attrs={'placeholder':'username'}))
+	passwd=forms.CharField(max_length=30, widget=forms.PasswordInput(attrs={'placeholder':'password'}))
 
-class CreateAccount(forms.Form):
-	username=forms.CharField(max_length=100, widget=forms.TextInput(attrs={'placeholder':'username','size':'15'}))
-	email=forms.EmailField(max_length=80, widget=forms.TextInput(attrs={'placeholder':'email','size':'15'}))
-	passwd=forms.CharField(max_length=50, widget=forms.PasswordInput(attrs={'placeholder':'password','size':'15'}))
+class addForm(forms.Form):
+	username=forms.CharField(max_length=50, widget=forms.TextInput(attrs={'placeholder':'username'}))
+	email=forms.EmailField(max_length=50, widget=forms.TextInput(attrs={'placeholder':'email'}))
+	passwd=forms.CharField(max_length=30, widget=forms.PasswordInput(attrs={'placeholder':'password'}))
+
+class tweetForm(forms.Form):
+	username=forms.CharField(max_length=50, widget=forms.HiddenInput(attrs={'id':'user'}))
+	textarea=forms.CharField(widget=forms.Textarea)

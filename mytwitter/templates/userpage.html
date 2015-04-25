@@ -5,7 +5,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="/css/userpage.css" />
 <link rel="stylesheet" type="text/css" href="/css/reset.css" />
-<!-- <script type="text/javascript" src="scripts/popform.js"></script> -->
 <script>
 	function popForm(){
 		window.showModalDialog("tweet/","{{user}}","")
@@ -83,70 +82,70 @@
     <body>
     	<div id="container">
     		<div id="header">
-                                <div id="formSearch">
-                                    <form action="/searchfollowing/" method="post" >{% csrf_token %}
-                                        <input type="text" name="tweetField" placeholder="Search Twitter" id="search" />
-                                        <Button type="submit" name="searchTwitter" value="" id="submitButton" />
-                                    </form>
-                                </div>
+    			<div id="formSearch">
+    				<form action="/searchFollowing/" method="POST">
+    					{% csrf_token %}
+    					<input type="text" name="tweetField" placeholder="Search Twitter" id="search" />
+                                        		<Button type="submit" name="searchTwitter" value="" id="submitButton" />
+    				</form>
+    				
+    			</div>
     			<img id="popform" src="/css/tweetButton.jpg" target="_blank" alt="button" onclick="popForm()" />
-    			<!-- <input id="popform" type="button" value="Tweet" /> -->
     		</div>
     		<div id="main">
     			<div id="left">
-    				<div id="left-up">
-    					<div id="left-up1"></div>
-    					<div id="left-up2">
-                                                            <p id="username">{{user}}</p>
-                                                            <div id="tweets-number" title="{{ct}} TWEETS">
-                                                                <!-- link to my Tweets page -->
-                                                                <a id="to-my-tweets" href="/userTweets/?={{user}}" value="{{user}}" />
-                                                                    <ul>
-                                                                        <li>TWEETS</li>
-                                                                        <li>{{ct}}</li>
-                                                                    </ul>
-                                                                </a>
-                                                            </div>
-                                                            <div id="following-number" title="{{ct2}} FOLLOWINGS">
-                                                                <a id="to-my-follows" href="/userFollowings/?={{userlist|safe}}" value="{{user}}" />
-                                                                    <ul>
-                                                                        <li>FOLLOWING</li>
-                                                                        <li>{{ct2}}</li>
-                                                                    </ul>
-                                                                </a>
-                                                            </div>
-                                                    </div>
-    				</div>
-    				<div id="left-down"></div>
+    					<div id="left-up">
+    						<div id="left-up1"></div>
+    						<div id="left-up2">
+    							<p id="username">{{user}}</p>
+    							<div id="tweets-number" title="{{ct}} TWEETS">
+    								<a id="to-my-tweets" href="/userTweets?={{user}}" value="{{user}}">
+    									<ul>
+    										<li>TWEETS</li>
+    										<li>{{ct}}</li>
+    									</ul>
+    								</a>
+    							</div>
+    							<div id="following-number" title="{{ct2}} FOLLOWINGS">
+    								<a id="to-my-follows" href="/userFollowings/?={{userlist|safe}}" value="{{user}}">
+    									<ul>
+    										<li>FOLLOWING</li>
+    										<li>{{ct2}}</li>
+    									</ul>
+    								</a>
+    							</div>
+    						</div>
+    					</div>
+    					<div id="left-down"></div>
     			</div>
     			<div id="middle">
-                                        <div id="middle-up">
-                                            <div class="followings" id="follow1">
-                                                <p id="setName1">void</p>
-                                                <form action="/addFollowing/" method="POST">{% csrf_token %}
-                                                    <input id="username1" type="hidden" name="username" value="" />
-                                                    <input id="followname1" type="hidden" name="followname" value="" />
-                                                    <input type="submit" value="Follow" />
-                                                </form>
-                                            </div>
-                                            <div class="followings" id="follow2">
-                                                 <p id="setName2">void</p>
-                                                 <form action="/addFollowing/" method="POST">{% csrf_token %}
-                                                    <input id="username2" type="hidden" name="username" value="" />
-                                                    <input id="followname2" type="hidden" name="followname" value="" />
-                                                    <input type="submit" value="Follow" />
-                                                </form>
-                                            </div>
-                                            <div class="followings" id="follow3">
-                                                 <p id="setName3">void</p>
-                                                 <form action="/addFollowing/" method="POST">{% csrf_token %}
-                                                    <input id="username3" type="hidden" name="username" value="" />
-                                                    <input id="followname3" type="hidden" name="followname" value="" />
-                                                    <input type="submit" value="Follow" />
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <div id="middle-down"></div>
+    				<div id="middle-up">
+    						<div class="followings" id="follow1">
+                                                                        <p id="setName1">void</p>
+                                                                        <form action="/addFollowing/" method="POST">{% csrf_token %}
+                                                                                    <input id="username1" type="hidden" name="username" value="" />
+                                                                                    <input id="followname1" type="hidden" name="followname" value="" />
+                                                                                    <input type="submit" value="Follow" />
+                                                                        </form>
+                                                               </div>
+    						<div class="followings" id="follow2">
+                                                 			<p id="setName2">void</p>
+                                                 			<form action="/addFollowing/" method="POST">{% csrf_token %}
+                                                    			<input id="username2" type="hidden" name="username" value="" />
+                                                    			<input id="followname2" type="hidden" name="followname" value="" />
+                                                    			<input type="submit" value="Follow" />
+                                                			</form>
+                                            		</div>
+                                            		<div class="followings" id="follow3">
+                                                 			<p id="setName3">void</p>
+                                                 			<form action="/addFollowing/" method="POST">{% csrf_token %}
+                                                   			 	<input id="username3" type="hidden" name="username" value="" />
+                                                    			<input id="followname3" type="hidden" name="followname" value="" />
+                                                    			<input type="submit" value="Follow" />
+                                                			</form>
+                                            		</div>
+    				</div>
+    				<div id="middle-down"></div>
     			</div>
     			<div id="right"></div>
     		</div>

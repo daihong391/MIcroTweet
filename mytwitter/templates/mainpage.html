@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>mainpage</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/css/mainPage.css" />
+<link rel="stylesheet" type="text/css" href="/css/reset.css" />
+</head>
+    <body>
+    	<div id="container">
+    		<div id="header">
+    			<p id="language"></p>
+    		</div>
+    		<div id="main">
+    			<div id="flag">
+    				<div id="top">
+    					<div id="txt">
+    						<h1>Welcome to Twitter</h1>
+    						<p>
+    							Connect with your friends --- and other fascinating
+    							people. Get in-the-moment updatas on the things
+    							that interest you. And watch events unfold, in real
+    							time, from every angle.
+    						</p>
+    					</div>
+    					<div id="form">
+    						<div id="form1">
+    								<ul>
+    									<li>
+    										<form action="/mainpage/" method="POST">
+    											{% csrf_token %}
+    											{{form1.username}}
+    											{{form1.passwd}}
+    											<input type="submit" value="Log in" size="15" />
+    										</form>
+    									</li>
+    									<li>
+    										<p id="despRem">
+    											<input id="remember" type="checkbox" name="remember" checked="checked" />
+    											Remember me
+    											<a href="#">Forgot password?</a>
+    										</p>
+    									</li>
+    								</ul>
+    						</div>
+    						<div id="form2">
+    							<form action="/addUser/" method="post">
+    								{% csrf_token %}
+    								<div id="title">
+    									New to Twitter? Sign up
+    								</div>
+    								<div>
+    									<ul>
+    										<li>
+    											{{form2.username}}
+    										</li>
+    										<li>
+    											{{form2.email}}
+    										</li>
+    										<li>
+    											{{form2.passwd}}
+    										</li>
+    										<li>
+    											<input id="signup" type="submit" value="Sign up for Twitter" size="15" />
+    										</li>
+    									</ul>
+    								</div>
+    							</form>
+    						</div>
+    					</div>
+    				</div>
+    				<div id="bottom">
+    					
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </body>
+</html>
